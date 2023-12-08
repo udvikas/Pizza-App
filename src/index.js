@@ -69,9 +69,30 @@ function Menu() {
   return (
     <div className="menu">
       <h2>Special Menu</h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <Pizza
+        name="Pizza Salamino"
+        ingredients="Tomato, mozarella, and pepperoni"
+        price={18}
+        photoName="pizzas/salamino.jpg"
+      />
+      <Pizza
+        name="Pizza Margherita"
+        ingredients="Tomato and mozarella"
+        price={10}
+        photoName="pizzas/margherita.jpg"
+      />
+      <Pizza
+        name="Pizza Spinaci"
+        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+        price={15}
+        photoName="pizzas/spinaci.jpg"
+      />
+      <Pizza
+        name="Pizza Funghi"
+        ingredients="Tomato, mozarella, mushrooms, and onion"
+        price={12}
+        photoName="pizzas/funghi.jpg"
+      />
     </div>
   );
 }
@@ -80,12 +101,13 @@ function Footer() {
   return <div>Open Today</div>;
 }
 
-function Pizza() {
+function Pizza(props) {
   return (
     <div>
-      <img src="pizzas/prosciutto.jpg" alt="prosciutto" />
-      <h3>Pizza Title</h3>
-      <div>Pizza Description</div>
+      <img src={props.photoName} alt={props.name} />
+      <h3>{props.name}</h3>
+      <p>{props.ingredients}</p>
+      <span>{props.price + 4}</span>
     </div>
   );
 }
