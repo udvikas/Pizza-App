@@ -60,7 +60,7 @@ function App() {
 function Header() {
   return (
     <div className="header">
-      <h1>Vikas Pizza App</h1>
+      <h1>Vikas Pizza Store</h1>
     </div>
   );
 }
@@ -69,7 +69,12 @@ function Menu() {
   return (
     <div className="menu">
       <h2>Special Menu</h2>
-      <Pizza
+      <ul className="pizzas">
+        {pizzaData.map((pizza) => (
+          <Pizza pizzaObject={pizza} />
+        ))}
+      </ul>
+      {/* <Pizza
         name="Pizza Salamino"
         ingredients="Tomato, mozarella, and pepperoni"
         price={18}
@@ -92,7 +97,7 @@ function Menu() {
         ingredients="Tomato, mozarella, mushrooms, and onion"
         price={12}
         photoName="pizzas/funghi.jpg"
-      />
+      /> */}
     </div>
   );
 }
@@ -103,12 +108,14 @@ function Footer() {
 
 function Pizza(props) {
   return (
-    <div>
-      <img src={props.photoName} alt={props.name} />
-      <h3>{props.name}</h3>
-      <p>{props.ingredients}</p>
-      <span>{props.price + 4}</span>
-    </div>
+    <li className="pizza">
+      <img src={props.pizzaObject.photoName} alt={props.pizzaObject.name} />
+      <div>
+        <h3>{props.pizzaObject.name}</h3>
+        <p>{props.pizzaObject.ingredients}</p>
+        <span>{props.pizzaObject.price}</span>
+      </div>
+    </li>
   );
 }
 
